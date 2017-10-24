@@ -1,0 +1,24 @@
+{
+    "name"        : "cartbeforehorse/cbh-validation",
+    "description" : "Providing the validation functions that PHP has always been missing",
+    "keywords"    : ["laravel", "validation"],
+    "type"        : "library",
+    "license"     : "MIT",
+    "authors": [
+        {
+            "name": "Osian ap Garth",
+            "email": "osian.ap.garth@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "5.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Cartbeforehorse\\Validation\\": "src/"
+        }
+    }
+}

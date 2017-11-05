@@ -137,6 +137,9 @@ class ValidationSys {
         $keys_are_exclusive = ($total_length == $merged_length);
         return self::ManageErrorHandling ('Arrays keys are not exclusive in ' . __METHOD__, $keys_are_exclusive, $err);
     }
+    public static function ImplodeIgnoringNulls (string $glue, array $pieces) {
+        return implode ($glue, array_filter ($pieces, function($v){return!($v===''||$v===null);}));
+    }
 
     ///////////////////////////////////////////////////////////////////////////////////
     // Functions to check validity of $_GET[] parameters in URL

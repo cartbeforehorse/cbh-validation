@@ -97,11 +97,24 @@ class ValidationSys {
     }
 
     /***
-     * The following functions check that arrays comply to specific rules or formats
+     * The following functions check that STRINGS comply to specific rules or formats
+     * Try to ensure that all functions start with "String*"
+     */
+    public static function StringContains ($proposed_value, $search_str, $err =false) {
+        $valid = strpos ($search_str, $proposed_value) !== false;
+        return self::ManageErrorHandling ("$proposed_value not found in string, in " . __METHOD__, $valid, $err);
+    }
+
+    /***
+     * The following functions check that ARRAYS comply to specific rules or formats
+     * Try to ensure that all functions start with "Array*"
      */
     public static function InArray ($proposed_value, $validation_array, $err =false) {
         $valid = in_array ($proposed_value, $validation_array);
         return self::ManageErrorHandling ('Value not in given array in ' . __METHOD__, $valid, $err);
+    }
+    public static function ArrayContains ($proposed_value, $validation_array, $err =false) {
+        return self::InArray ($proposed_value, $validation_array, $err);
     }
     public static function ArraysEqual ($arr1, $arr2, $err =false) {
         $equal = $arr1 == $arr2;
